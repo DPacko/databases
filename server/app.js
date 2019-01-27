@@ -11,6 +11,14 @@ var router = require('./routes.js');
 var app = express();
 module.exports.app = app;
 
+db.authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 // Set what we are listening on.
 app.set('port', 3000);
 
